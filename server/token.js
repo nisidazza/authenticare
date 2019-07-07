@@ -9,8 +9,8 @@ module.exports = {
   createToken
 }
 
-function getIssuer (getUserByName) {
-  return function (req, res) {
+function getIssuer (options, getUserByName) {
+  return function issue (req, res) {
     getUserByName(req.body.username)
       .then(user => {
         const token = createToken(user, process.env.JWT_SECRET)

@@ -30,6 +30,11 @@
   "jest": {
     "verbose": true
   },
+  "authenticare": {
+    "development": {
+      "baseUrl": "http://localhost:3000/api/v1"
+    }
+  },
   "dependencies": {
     "authenticare": "^0.3.0",
     "dotenv": "^7.0.0",

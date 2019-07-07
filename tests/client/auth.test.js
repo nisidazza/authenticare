@@ -6,7 +6,7 @@ describe('isAuthenticated', () => {
       getToken: () => 'test-token'
     }))
 
-    jest.doMock('jwt-decode', () => token => {
+    jest.doMock('../../client/decode', () => token => {
       const today = new Date()
       const tomorrow = today.setDate(today.getDate() + 1)
       return {
@@ -25,7 +25,7 @@ describe('isAuthenticated', () => {
       saveToken: () => {}
     }))
 
-    jest.doMock('jwt-decode', () => token => {
+    jest.doMock('../../client/decode', () => token => {
       expect(token).toBe('test-token')
       const today = new Date()
       const yesterday = today.setDate(today.getDate() - 1)
@@ -48,7 +48,7 @@ describe('isAuthenticated', () => {
       }
     }))
 
-    jest.doMock('jwt-decode', () => token => {
+    jest.doMock('../../client/decode', () => token => {
       expect(token).toBe('test-token')
       const today = new Date()
       const yesterday = today.setDate(today.getDate() - 1)
@@ -81,7 +81,7 @@ describe('saveAuthToken', () => {
       }
     }))
 
-    jest.doMock('jwt-decode', () => token => {
+    jest.doMock('../../client/decode', () => token => {
       expect(token).toBe('test-token')
       return {
         sub: 'token-test'
@@ -99,7 +99,7 @@ describe('getAuthToken', () => {
       getToken: () => 'test-token'
     }))
 
-    jest.doMock('jwt-decode', () => token => {
+    jest.doMock('../../client/decode', () => token => {
       expect(token).toBe('test-token')
       return {
         sub: 'token-test'
