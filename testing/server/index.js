@@ -13,16 +13,8 @@ module.exports = {
   useToken: (isAllowed, token) => {
     isAuthorized = isAllowed
     tokenToUse = token
-    console.log('isAuthorized:', isAuthorized)
+    console.log('isAuthorized / token:', isAuthorized, '/', tokenToUse)
   },
-  getTokenDecoder: isTokenRequired => getTokenDecoder(isTokenRequired, getIsAuthorized(), getTokenToUse())
-}
-
-function getIsAuthorized() {
-  return isAuthorized
-}
-
-function getTokenToUse() {
-  return tokenToUse
+  getTokenDecoder: isTokenRequired => getTokenDecoder(isTokenRequired, isAuthorized, tokenToUse)
 }
 
